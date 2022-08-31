@@ -30,6 +30,14 @@ Add the following maildriver to config/mail.php in the ```mailers``` array.
 ],
 ```
 
+### Step 3
+
+Set the ```mail_mailer``` env variable to
+
+```
+MAIL_MAILER=sendinblue
+```
+
 ## Usage
 
 Create a new Mailable using ```php artisan make:mail``` and add the ```Sendinblue``` trait to the Mailable. Next, add ```->sendinblue([])``` to the Mailable instance and you're done. 
