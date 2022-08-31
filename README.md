@@ -32,7 +32,7 @@ Add the following maildriver to config/mail.php in the ```mailers``` array.
 
 ### Step 3
 
-Set the ```mail_mailer``` env variable to
+Set the ```MAIL_MAILER``` .env variable to:
 
 ```
 MAIL_MAILER=sendinblue
