@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) concept7 <tools@concept7.nl>
+Copyright (c) concept7 <hello@concept7.nl>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
