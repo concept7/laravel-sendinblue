@@ -12,14 +12,12 @@ composer require concept7/laravel-sendinblue
 
 ### Step 1
 
-Add the following service to config/services.php.
+Ensure that you have the following variables in your project's .env file:
 
 ```
-'sendinblue' => [
-     'key' => 'xxx-xxx-xxx-xxx',
-     'sender_name' => 'Concept7',
-     'sender_email' => 'sendinblue@example.com',
- ],
+SENDINBLUE_API_KEY=
+APP_NAME=
+MAIL_FROM_ADDRESS=
 ```
 
 ### Step 2
