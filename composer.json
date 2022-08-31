@@ -12,7 +12,8 @@
         {
             "name": "Jeroen Hulshof",
             "email": "jeroenhulshof@icloud.com",
-            "role": "Developer"
+            "role": "Developer",
+            "homepage": "https://github.com/Jeroenhulshof"
         }
     ],
     "require": {
@@ -44,7 +45,6 @@
         }
     },
     "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
