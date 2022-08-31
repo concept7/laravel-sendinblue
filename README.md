@@ -37,7 +37,7 @@ Add the following maildriver to config/mail.php in the ```mailers``` array.
 Create a new Mailable using ```php artisan make:mail``` and add the ```Sendinblue``` trait to the Mailable. Next, add ```->sendinblue([])``` to the Mailable instance and you're done. 
 
 ```php
-use Jeroenhulshof\LaravelSendinblue\Traits\Sendinblue;
+use Concept7\LaravelSendinblue\Sendinblue;
 
 class MyMailable extends Mailable
 {
