@@ -6,8 +6,8 @@ use GuzzleHttp\Client;
 use SendinBlue\Client\Api\TransactionalEmailsApi;
 use SendinBlue\Client\Configuration;
 
-class SendinblueApi {
-
+class SendinblueApi
+{
     protected static function getFacadeAccessor()
     {
         return 'sendinblueapi';
@@ -22,5 +22,4 @@ class SendinblueApi {
             $configuration
         );
     }
-
 }

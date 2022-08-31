@@ -14,7 +14,7 @@ trait Sendinblue
 
         // Get template subject
 
-        if(isset($config['template_id'])) {
+        if (isset($config['template_id'])) {
             $this->subject(SendinblueApi::instance()
                 ->getSmtpTemplate($config['template_id'])
                 ->getSubject());
@@ -22,20 +22,19 @@ trait Sendinblue
 
         // Add parameters to Mailable
         $this->withSymfonyMessage(function ($message) use ($config) {
-
-            if(isset($config['template_id'])) {
+            if (isset($config['template_id'])) {
                 $message
                     ->getHeaders()
                     ->addTextHeader('templateId', $config['template_id']);
             }
 
-            if(isset($config['params'])) {
+            if (isset($config['params'])) {
                 $message
                     ->getHeaders()
                     ->addParameterizedHeader(
                         'params', 'params', $config['params']
                     );
-            };
+            }
         });
 
         return $this;

@@ -13,7 +13,7 @@ class SendinblueServiceProvider extends PackageServiceProvider
 {
     public function registeringPackage()
     {
-        $this->app->bind('sendinblueapi',function(){
+        $this->app->bind('sendinblueapi', function () {
             return new SendinblueApi();
         });
     }
