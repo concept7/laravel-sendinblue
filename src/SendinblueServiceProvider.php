@@ -37,7 +37,7 @@ class SendinblueServiceProvider extends PackageServiceProvider
                 new Dsn(
                     'sendinblue+api',
                     'default',
-                    config('services.sendinblue.key')
+                    config('sendinblue.key')
                 )
             );
         });

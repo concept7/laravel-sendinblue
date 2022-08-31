@@ -15,7 +15,7 @@ class SendinblueApi
 
     public static function instance()
     {
-        $configuration = Configuration::getDefaultConfiguration()->setApiKey('api-key', config('services.sendinblue.key'));
+        $configuration = Configuration::getDefaultConfiguration()->setApiKey('api-key', config('sendinblue.key'));
 
         return new TransactionalEmailsApi(
             new Client(),
