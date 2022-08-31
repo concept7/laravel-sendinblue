@@ -1,81 +1,67 @@
+# laravel-sendinblue
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+This project is created to simplify sending transactional emails through Sendinblue using Laravel Mailables, [Symfony/sendinblue-mailer](https://github.com/symfony/sendinblue-mailer) and [Sendinblue API V3 PHP library](https://github.com/sendinblue/APIv3-php-library).
 
-# This is my package laravel-sendinblue
+## Install using Composer
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/concept7/laravel-sendinblue.svg?style=flat-square)](https://packagist.org/packages/concept7/laravel-sendinblue)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/concept7/laravel-sendinblue/run-tests?label=tests)](https://github.com/concept7/laravel-sendinblue/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/concept7/laravel-sendinblue/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/concept7/laravel-sendinblue/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/concept7/laravel-sendinblue.svg?style=flat-square)](https://packagist.org/packages/concept7/laravel-sendinblue)
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-sendinblue.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-sendinblue)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
-## Installation
-
-You can install the package via composer:
-
-```bash
+```
 composer require concept7/laravel-sendinblue
 ```
 
-You can publish and run the migrations with:
+## Configuration
 
-```bash
-php artisan vendor:publish --tag="laravel-sendinblue-migrations"
-php artisan migrate
+### Step 1
+
+Add the following service to config/services.php.
+
+```
+'sendinblue' => [
+     'key' => 'xxx-xxx-xxx-xxx',
+     'sender_name' => 'Concept7',
+     'sender_email' => 'sendinblue@example.com',
+ ],
 ```
 
-You can publish the config file with:
+### Step 2
 
-```bash
-php artisan vendor:publish --tag="laravel-sendinblue-config"
+Add the following maildriver to config/mail.php in the ```mailers``` array.
+
 ```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-sendinblue-views"
+'sendinblue' => [
+     'transport' => 'sendinblue',
+],
 ```
 
 ## Usage
 
+Create a new Mailable using ```php artisan make:mail``` and add the ```Sendinblue``` trait to the Mailable. Next, add ```->sendinblue([])``` to the Mailable instance and you're done. 
+
 ```php
-$sendinblue = new LaravelSendinblue\Sendinblue();
-echo $sendinblue->echoPhrase('Hello, LaravelSendinblue!');
+use Jeroenhulshof\LaravelSendinblue\Traits\Sendinblue;
+
+class MyMailable extends Mailable
+{
+    use Queueable, 
+        SerializesModels, 
+        Sendinblue;
+
+    /**
+     * Build the message
+     */
+    public function build()
+    {
+        return $this
+            ->to()
+            ->sendinblue([
+                'template_id'  => 1,
+                'params'       => [
+                    // insert parameters here
+                ]
+            ]);
+    }
+}
 ```
 
-## Testing
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
