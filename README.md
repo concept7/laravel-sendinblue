@@ -1,3 +1,5 @@
+![Concept7 Sendinblue](https://banners.beyondco.de/Laravel%20Sendinblue.png?theme=light&packageManager=composer+require&packageName=concept7%2Flaravel-sendinblue&pattern=architect&style=style_1&description=A+Laravel+package+for+sending+transactional+emails+through+Sendinblue&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
+
 # laravel-sendinblue
 
 This project is created to simplify sending transactional emails through Sendinblue using Laravel Mailables, [Symfony/sendinblue-mailer](https://github.com/symfony/sendinblue-mailer) and [Sendinblue API V3 PHP library](https://github.com/sendinblue/APIv3-php-library).
