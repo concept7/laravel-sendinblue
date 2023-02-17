@@ -1,5 +1,5 @@
 {
-    "name": "dominicv1/laravel-sendinblue",
+    "name": "concept7/laravel-sendinblue",
     "description": "Laravel package for sending transactional emails with Sendinblue using Sendinblue SDK V3 and Symfony",
     "keywords": [
         "concept7",
